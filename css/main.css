@@ -16,8 +16,9 @@ img {
 
 }
 
-.answers li {
-  font-size: 32px;
+.answers {
+  font-size: 22px;
+  font-weight: lighter;
   list-style: none;
   text-align: center;
   color: #4E4E4E;
