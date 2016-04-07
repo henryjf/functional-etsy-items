@@ -11,9 +11,22 @@ img {
   width: 1100px;
 }
 
+.main {
+  background-color: #EEEEEE;
+
+}
+
 .answers li {
   font-size: 32px;
   list-style: none;
   text-align: center;
-  background-color: #EEEEEE;
+  color: #4E4E4E;
+}
+
+footer {
+  background-color: #4B484E;
+  color: #A2A0A3;
+  padding: 45px;
+  text-align: center;
+  font-size: 14px;
 }
