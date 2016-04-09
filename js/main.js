@@ -8,8 +8,8 @@ var allPrices = items.map( function (item) {
 
 function addUpItemPrices (prev, current) {
   return prev + current;
+  // console.log(prev + current);
 }
-// console.log(prev + current);
 var priceSum = allPrices.reduce(addUpItemPrices);
 // console.log(priceSum);
 var avg = priceSum/items.length;
@@ -36,22 +36,21 @@ if  (item.price > 14 && item.price < 18) {
 var answer2Area = document.querySelector('#answer2');
 // Use forEach to identify each title from individual product
 priceSearch.forEach(function(singleProduct){
-  // console.log(singleProduct.title);
 
+//moving each title into html form( or DOM node) via document.createElement().
+//First we create an empty p element
   var para = document.createElement('p');
-  // console.log(para);
 
+// Second we get the singleProduct info and push it into the DOM node
   var textNode = document.createTextNode(singleProduct.title);
-  para.appendChild(textNode);
-  // console.log(textNode);
 
+// Third we append (or add on) each singleProduct into the created 'p' tags
+// so that all of them are displayed
+  para.appendChild(textNode);
+
+// Lastly we add the filled 'p' tags to the answer2Area in the html so they //display on the page
   answer2Area.appendChild(para);
 });
-
-// console.log(answer2Area);
-
-// var answer2Area = document.querySelector('#answer2')
-// answer2Area.innerHTML = answer2;
 
 
 // 3
@@ -73,14 +72,55 @@ answer3Area.innerHTML = answer3;
 
 
 // 4
-// Display a list of all items who are made of wood.
+// Display a list of all items that are made of wood.
+// var productsWood = items.map(function(item){
+//   return item.materials;
+// });
+
+// var productsWood = function product ( wood) {
+//   return items.materials
+// };
+// console.log(productsWood);
+// productsWood.forEach(function (productWood){
+//   console.log(materials.wood);
+  // return material.findIndex(woodproduct)
+// })
+
+//'wood' is a string inside the materials array.  Materials is an array inside
+//the items array.
+// I need to access the 'wood' string and then get the title of each product
+//that contains the 'wood' string.
+
+var woodProducts = items.filter(function(woodProduct){
+  return woodProduct.materials;
+});
+// console.log(woodProducts);
+
+var materials = items.materials;
+
+woodProducts.forEach(function (item){
+// console.log(materials)
+});
+// materials.forEach(function(prod){
+//   console.log(prod.wood)
+// });
+// });
+
+
 
 
 // 5
 // Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
+// var priceSearch = items.filter(function(item) {
+// if  (item.price > 14 && item.price < 18) {
+//   return item.price
+// }
+// });
 
-
-
+var materialSearch = items.map(function(item){
+  return item.materials;
+});
+console.log(materialSearch);
 // 6
 // How many items were made by their sellers?
