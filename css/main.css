@@ -13,11 +13,10 @@ img {
 
 .main {
   background-color: #EEEEEE;
-
 }
 
-.answers {
-  font-size: 22px;
+.answers h2{
+  font-size: 28px;
   font-weight: lighter;
   list-style: none;
   text-align: center;

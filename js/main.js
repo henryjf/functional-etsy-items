@@ -32,28 +32,46 @@ if  (item.price > 14 && item.price < 18) {
   return item.price
 }
 });
-console.log(priceSearch);
-
+// console.log(priceSearch);
+var answer2Area = document.querySelector('#answer2');
 // Use forEach to identify each title from individual product
 priceSearch.forEach(function(singleProduct){
-  console.log(singleProduct.title);
-})
+  // console.log(singleProduct.title);
 
-// var answer2 = title3
-var answer2Area = document.querySelector('#answer2')
+  var para = document.createElement('p');
+  // console.log(para);
 
-answer2Area.innerHTML = answer2;
+  var textNode = document.createTextNode(singleProduct.title);
+  para.appendChild(textNode);
+  // console.log(textNode);
+
+  answer2Area.appendChild(para);
+});
+
+// console.log(answer2Area);
+
+// var answer2Area = document.querySelector('#answer2')
+// answer2Area.innerHTML = answer2;
 
 
 // 3
 // Which item has a "GBP" currency code? Display it's name and price.
 
 var currency = items.filter(function(item){
-  if (item.currency_code === "GBP");
-  return item.currency_code
-})
+  return item.currency_code ==="GBP";
+});
 
-console.log(currency);
+currency.forEach (function (pound){
+ // console.log(pound.title);
+var answer3= pound.title + "  costs £18.";
+// console.log(answer3);
+
+var answer3Area = document.querySelector('#answer3');
+
+answer3Area.innerHTML = answer3;
+});
+
+
 // 4
 // Display a list of all items who are made of wood.
 
