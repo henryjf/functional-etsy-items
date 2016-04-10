@@ -73,11 +73,12 @@ answer3Area.innerHTML = answer3;
 
 // 4
 // Display a list of all items that are made of wood.
+
 // var productsWood = items.map(function(item){
 //   return item.materials;
 // });
-
-// var productsWood = function product ( wood) {
+//
+// var productsWood = function product(wood) {
 //   return items.materials
 // };
 // console.log(productsWood);
@@ -91,16 +92,16 @@ answer3Area.innerHTML = answer3;
 // I need to access the 'wood' string and then get the title of each product
 //that contains the 'wood' string.
 
-var woodProducts = items.filter(function(woodProduct){
+var products = items.map(function(woodProduct){
   return woodProduct.materials;
 });
-// console.log(woodProducts);
+console.log(products);
 
-var materials = items.materials;
-
-woodProducts.forEach(function (item){
+// var materials = items.materials;
+//
+// products.forEach(function (item){
 // console.log(materials)
-});
+// });
 // materials.forEach(function(prod){
 //   console.log(prod.wood)
 // });
@@ -119,8 +120,27 @@ woodProducts.forEach(function (item){
 // });
 
 var materialSearch = items.map(function(item){
+  // if (item.materials > 7)
   return item.materials;
 });
-console.log(materialSearch);
+// console.log(materialSearch);
+
+
 // 6
 // How many items were made by their sellers?
+
+//Find items.who_made with the answer "i_did".
+
+var product = items.filter(function(item) {
+  return item.who_made === "i_did";
+});
+// console.log(product);
+// for (var product="i_did"; product < 25; product ++){
+//   console.log(product);
+// }
+
+// product.indexOf (function (selfMade){
+//   console.log(selfMade)
+// });
+
+// who_made: i_did
