@@ -113,17 +113,36 @@ console.log(products);
 // 5
 // Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
-// var priceSearch = items.filter(function(item) {
-// if  (item.price > 14 && item.price < 18) {
-//   return item.price
-// }
-// });
-
-var materialSearch = items.map(function(item){
-  // if (item.materials > 7)
-  return item.materials;
+var materialSearch = items.filter(function(item){
+  if (item.materials.length > 7)
+  return item.materials.length;
 });
 // console.log(materialSearch);
+
+materialSearch.forEach (function(itemNum) {
+  console.log(itemNum.title, itemNum.materials.length, itemNum.materials);
+});
+
+var answer5Area = document.querySelector('#answer5');
+// Use forEach to identify each title from individual product
+materialSearch.forEach(function(itemNum){
+
+//moving each title into html form( or DOM node) via document.createElement().
+//First we create an empty p element
+  // var para = document.createElement('p');
+  var answer = document.createElement('p');
+
+// Second we get the singleProduct info and push it into the DOM node
+  var textNode = document.createTextNode(itemNum.title,itemNum.materials.length, itemNum.materials);
+
+// Third we append (or add on) each singleProduct into the created 'p' tags
+// so that all of them are displayed
+  // para.appendChild(textNode);
+  answer.appendChild(textNode);
+
+// Lastly we add the filled 'p' tags to the answer2Area in the html so they //display on the page
+  answer5Area.appendChild(answer);
+});
 
 
 // 6
@@ -134,13 +153,12 @@ var materialSearch = items.map(function(item){
 var product = items.filter(function(item) {
   return item.who_made === "i_did";
 });
-// console.log(product);
-// for (var product="i_did"; product < 25; product ++){
-//   console.log(product);
-// }
+// console.log(product.length);
 
-// product.indexOf (function (selfMade){
-//   console.log(selfMade)
-// });
+//get number of product by using product.length
 
-// who_made: i_did
+var answer6 = product.length + " were made by their seller";
+// console.log(answer6);
+
+var answer6Area = document.querySelector('#answer6');
+answer6Area.innerHTML = answer6;
