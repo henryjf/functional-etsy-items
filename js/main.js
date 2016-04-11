@@ -86,7 +86,7 @@ var products = items.map(function(woodProduct){
 var woodProduct = items.materials;
 var product = woodProduct.indexOf('wood');
 
-console.log(woodProduct);
+// console.log(woodProduct);
 });
 
 
@@ -107,8 +107,6 @@ console.log(woodProduct);
 // });
 
 
-
-
 // 5
 // Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
@@ -116,24 +114,21 @@ var materialSearch = items.filter(function(item){
   if (item.materials.length > 7)
   return item.materials.length;
 });
-// console.log(materialSearch);
 
-materialSearch.forEach (function(itemNum) {
-  console.log(itemNum.title, itemNum.materials.length, itemNum.materials);
-});
-
-var answer5Area = document.querySelector('#answer5');
 // Use forEach to identify each title from individual product
-materialSearch.forEach(function(itemNum){
+materialSearch.forEach (function(itemNum) {
+  (itemNum.title, itemNum.materials.length, itemNum.materials);
+
+  var answer5Area = document.querySelector('#answer5');
 
 //moving each title into html form( or DOM node) via document.createElement().
 
   var answer = document.createElement('p');
 
-
+  //Attempting to add title, number of materials, and list of materials
   var textNode = document.createTextNode(itemNum.title,itemNum.materials.length, itemNum.materials);
 
-
+  // add all the titles to the html page
   answer.appendChild(textNode);
 
 // Lastly we add the filled 'p' tags to the answer2Area in the html so they display on the page
