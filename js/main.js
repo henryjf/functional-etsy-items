@@ -4,15 +4,14 @@
 var allPrices = items.map( function (item) {
   return item.price;
 });
-// console.log(allPrices);
 
 function addUpItemPrices (prev, current) {
   return prev + current;
-  // console.log(prev + current);
 }
 var priceSum = allPrices.reduce(addUpItemPrices);
-// console.log(priceSum);
+
 var avg = priceSum/items.length;
+
 var final =(avg).toFixed(2);
 
 var answer1= "The average price is $" + final;
