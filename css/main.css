@@ -13,14 +13,20 @@ img {
 
 .main {
   background-color: #EEEEEE;
+  text-align: center;
+  padding: 20px;
 }
 
 .answers h2{
+  border-bottom:1px solid #EAE9EA;
   font-size: 28px;
   font-weight: lighter;
   list-style: none;
   text-align: center;
   color: #4E4E4E;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  padding-top: 30px;
 }
 
 footer {

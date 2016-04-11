@@ -94,8 +94,20 @@ answer3Area.innerHTML = answer3;
 
 var products = items.map(function(woodProduct){
   return woodProduct.materials;
+
+// console.log(products);
+var woodProduct = items.materials;
+var product = woodProduct.indexOf('wood');
+
+console.log(woodProduct);
 });
-console.log(products);
+
+
+
+ // woodProduct.indexOf('wood')
+ // console.log(woodProduct);
+ //  });
+
 
 // var materials = items.materials;
 //
