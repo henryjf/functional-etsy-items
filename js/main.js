@@ -1,17 +1,20 @@
 // Show me how to calculate the average price of all items.
-// The average price is $23.63
 
+// Get all prices with the map method
 var allPrices = items.map( function (item) {
   return item.price;
 });
-
+// add up prices
 function addUpItemPrices (prev, current) {
   return prev + current;
 }
+// Get sum using the reduce method
 var priceSum = allPrices.reduce(addUpItemPrices);
 
+// Get average price by dividing sum by number of all items
 var avg = priceSum/items.length;
 
+//round answer
 var final =(avg).toFixed(2);
 
 var answer1= "The average price is $" + final;
@@ -25,7 +28,7 @@ answer1Area.innerHTML = answer1;
 // 2
 // Show me how to get an array of items that cost between $14.00 and $18.00 USD
 
-// Use a filter methdd to get products costing between 14.00 and 18.00
+// Use a filter method to get products costing between 14.00 and 18.00
 var priceSearch = items.filter(function(item) {
 if  (item.price > 14 && item.price < 18) {
   return item.price
@@ -33,6 +36,7 @@ if  (item.price > 14 && item.price < 18) {
 });
 // console.log(priceSearch);
 var answer2Area = document.querySelector('#answer2');
+
 // Use forEach to identify each title from individual product
 priceSearch.forEach(function(singleProduct){
 
@@ -43,11 +47,10 @@ priceSearch.forEach(function(singleProduct){
 // Second we get the singleProduct info and push it into the DOM node
   var textNode = document.createTextNode(singleProduct.title);
 
-// Third we append (or add on) each singleProduct into the created 'p' tags
-// so that all of them are displayed
+// Third we append (or add on) each singleProduct into the created 'p' tags so that all of them are displayed
   para.appendChild(textNode);
 
-// Lastly we add the filled 'p' tags to the answer2Area in the html so they //display on the page
+// Lastly we add the filled 'p' tags to the answer2Area in the html so they display on the page
   answer2Area.appendChild(para);
 });
 
@@ -55,14 +58,14 @@ priceSearch.forEach(function(singleProduct){
 // 3
 // Which item has a "GBP" currency code? Display it's name and price.
 
+//Use the filter method to find just the GBP code
 var currency = items.filter(function(item){
   return item.currency_code ==="GBP";
 });
 
+// use forEach method to find the title of item w GBP
 currency.forEach (function (pound){
- // console.log(pound.title);
 var answer3= pound.title + "  costs £18.";
-// console.log(answer3);
 
 var answer3Area = document.querySelector('#answer3');
 
