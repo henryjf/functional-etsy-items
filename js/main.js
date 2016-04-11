@@ -24,13 +24,12 @@ var answer1Area = document.querySelector('#answer1');
 answer1Area.innerHTML = answer1;
 
 
-
 // 2
 // Show me how to get an array of items that cost between $14.00 and $18.00 USD
 
 // Use a filter method to get products costing between 14.00 and 18.00
 var priceSearch = items.filter(function(item) {
-if  (item.price > 14 && item.price < 18) {
+if  (item.price >= 14 && item.price <= 18) {
   return item.price
 }
 });
@@ -67,8 +66,9 @@ var currency = items.filter(function(item){
 currency.forEach (function (pound){
 var answer3= pound.title + "  costs £18.";
 
+//Find where answer goes
 var answer3Area = document.querySelector('#answer3');
-
+// Push answer to html
 answer3Area.innerHTML = answer3;
 });
 
@@ -81,40 +81,30 @@ answer3Area.innerHTML = answer3;
 // I need to access the 'wood' string and then get the title of each product
 //that contains the 'wood' string.
 
-var products = items.map(function(woodProduct){
-  return woodProduct.materials;
-
-// console.log(products);
-var woodProduct = items.materials;
-var product = woodProduct.indexOf('wood');
-
-// console.log(woodProduct);
+var products = items.filter(function(product){
+  return product.materials.indexOf('wood') >= 0;
 });
+//Do a search for each item title
+products.forEach(function(item){
+
+// Locate the area where the answer goes on the page
+var answer4Area = document.querySelector('#answer4');
+
+//Create a p element to insert the answers
+var par = document.createElement('p');
 
 
+var woodProduct = document.createTextNode(item.title);
+par.innerHTML = item.title + " is made of wood.";
 
- // woodProduct.indexOf('wood')
- // console.log(woodProduct);
- //  });
-
-
-// var materials = items.materials;
-//
-// products.forEach(function (item){
-// console.log(materials)
-// });
-// materials.forEach(function(prod){
-//   console.log(prod.wood)
-// });
-// });
-
+answer4Area.appendChild(par);
+});
 
 // 5
 // Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
 var materialSearch = items.filter(function(item){
-  if (item.materials.length > 7)
-  return item.materials.length;
+  return item.materials.length >= 8;
 });
 
 // Use forEach to identify each title from individual product
@@ -128,7 +118,7 @@ materialSearch.forEach (function(itemNum) {
   var answer = document.createElement('p');
 
   //Attempting to add title, number of materials, and list of materials
-  var textNode = document.createTextNode(itemNum.title,itemNum.materials.length, itemNum.materials);
+  var textNode = document.createTextNode(itemNum.title);
 
   // add all the titles to the html page
   answer.appendChild(textNode);
@@ -141,14 +131,12 @@ materialSearch.forEach (function(itemNum) {
 // 6
 // How many items were made by their sellers?
 
-//Find items.who_made with the answer "i_did".
-
+//Find items.who_made with "i_did".
 var product = items.filter(function(item) {
   return item.who_made === "i_did";
 });
 
 //get number of product by using product.length
-
 var answer6 = product.length + " were made by their seller";
 
 var answer6Area = document.querySelector('#answer6');
