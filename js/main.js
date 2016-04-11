@@ -90,6 +90,7 @@ console.log(woodProduct);
 });
 
 
+
  // woodProduct.indexOf('wood')
  // console.log(woodProduct);
  //  });
@@ -104,6 +105,8 @@ console.log(woodProduct);
 //   console.log(prod.wood)
 // });
 // });
+
+
 
 
 // 5
