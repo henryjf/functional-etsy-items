@@ -109,22 +109,28 @@ var materialSearch = items.filter(function(item){
 
 // Use forEach to identify each title from individual product
 materialSearch.forEach (function(itemNum) {
-  (itemNum.title, itemNum.materials.length, itemNum.materials);
+  // (itemNum.title, itemNum.materials.length, itemNum.materials);
 
   var answer5Area = document.querySelector('#answer5');
-
 //moving each title into html form( or DOM node) via document.createElement().
-
   var answer = document.createElement('p');
-
   //Attempting to add title, number of materials, and list of materials
-  var textNode = document.createTextNode(itemNum.title);
-
+  var para = document.createTextNode(itemNum.title);
   // add all the titles to the html page
-  answer.appendChild(textNode);
-
+  answer.appendChild(para);
 // Lastly we add the filled 'p' tags to the answer2Area in the html so they display on the page
   answer5Area.appendChild(answer);
+
+  var uList = document.createElement('ul');
+
+  itemNum.materials.forEach(function(material){
+    // console.log(material);
+  var liList = document.createElement('li');
+  liList.innerHTML= material;
+  // console.log(liList);
+  uList.appendChild(liList);
+});
+  answer5Area.appendChild(uList);
 });
 
 
