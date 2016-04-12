@@ -19,8 +19,9 @@ var final =(avg).toFixed(2);
 
 var answer1= "The average price is $" + final;
 
+//Find where answer goes on page
 var answer1Area = document.querySelector('#answer1');
-
+//Move answer to page
 answer1Area.innerHTML = answer1;
 
 
@@ -33,23 +34,23 @@ if  (item.price >= 14 && item.price <= 18) {
   return item.price
 }
 });
-// console.log(priceSearch);
+
 var answer2Area = document.querySelector('#answer2');
 
 // Use forEach to identify each title from individual product
 priceSearch.forEach(function(singleProduct){
 
 //moving each title into html form( or DOM node) via document.createElement().
-//First we create an empty p element
+//create an empty p element
   var para = document.createElement('p');
 
-// Second we get the singleProduct info and push it into the DOM node
+// get the singleProduct info and push it into the DOM node
   var textNode = document.createTextNode(singleProduct.title);
 
-// Third we append (or add on) each singleProduct into the created 'p' tags so that all of them are displayed
+//append (or add on) each singleProduct into the created 'p' tags so that all of them are displayed
   para.appendChild(textNode);
 
-// Lastly we add the filled 'p' tags to the answer2Area in the html so they display on the page
+//add the filled 'p' tags to the answer2Area in the html so they display on the page
   answer2Area.appendChild(para);
 });
 
