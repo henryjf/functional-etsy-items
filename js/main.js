@@ -116,20 +116,27 @@ materialSearch.forEach (function(itemNum) {
   // var para = document.createTextNode(itemNum.title);
   // add all the titles to the html page
   para.innerHTML = itemNum.title + ' has ' + itemNum.materials.length + ' materials:';
-  console.log(para.innerHTML);
-  // answer.appendChild(para);
+
 // print answer on page
   answer5Area.appendChild(para);
 
+//create empty ul tag to contain list
   var uList = document.createElement('ul');
 
+//use forEach to get lists
   itemNum.materials.forEach(function(material){
 
+//creat empty li tag to hold list
   var liList = document.createElement('li');
+
+  //use to move list to page
   liList.innerHTML= material;
 
+//use append so all li are linked to ul
   uList.appendChild(liList)
 });
+
+//append list answers to page
   answer5Area.appendChild(uList);
 });
 
