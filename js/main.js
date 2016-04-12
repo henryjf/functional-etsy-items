@@ -76,10 +76,8 @@ answer3Area.innerHTML = answer3;
 // 4
 // Display a list of all items that are made of wood.
 
-//'wood' is a string inside the materials array.  Materials is an array inside
-//the items array.
-// I need to access the 'wood' string and then get the title of each product
-//that contains the 'wood' string.
+//'wood' is a string inside the materials array.  Materials is an array inside the items array.
+// I need to access the 'wood' string and then get the title of each product that contains the 'wood' string.
 
 var products = items.filter(function(product){
   return product.materials.indexOf('wood') >= 0;
@@ -93,42 +91,44 @@ var answer4Area = document.querySelector('#answer4');
 //Create a p element to insert the answers
 var par = document.createElement('p');
 
-
+//Select the titles needed that contain wood
 var woodProduct = document.createTextNode(item.title);
 par.innerHTML = item.title + " is made of wood.";
-
+//Print all titles to the page
 answer4Area.appendChild(par);
 });
 
 // 5
 // Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
 
+// Run a filter method to find all items made of 8 or more materials.
 var materialSearch = items.filter(function(item){
   return item.materials.length >= 8;
 });
 
 // Use forEach to identify each title from individual product
 materialSearch.forEach (function(itemNum) {
-  // (itemNum.title, itemNum.materials.length, itemNum.materials);
 
   var answer5Area = document.querySelector('#answer5');
-//moving each title into html form( or DOM node) via document.createElement().
-  var answer = document.createElement('p');
-  //Attempting to add title, number of materials, and list of materials
-  var para = document.createTextNode(itemNum.title);
+//Create an empty p tag to hold the text
+  var para = document.createElement('p');
+  //Select the needed titles from the array
+  // var para = document.createTextNode(itemNum.title);
   // add all the titles to the html page
-  answer.appendChild(para);
-// Lastly we add the filled 'p' tags to the answer2Area in the html so they display on the page
-  answer5Area.appendChild(answer);
+  para.innerHTML = itemNum.title + ' has ' + itemNum.materials.length + ' materials:';
+  console.log(para.innerHTML);
+  // answer.appendChild(para);
+// print answer on page
+  answer5Area.appendChild(para);
 
   var uList = document.createElement('ul');
 
   itemNum.materials.forEach(function(material){
-    // console.log(material);
+
   var liList = document.createElement('li');
   liList.innerHTML= material;
-  // console.log(liList);
-  uList.appendChild(liList);
+
+  uList.appendChild(liList)
 });
   answer5Area.appendChild(uList);
 });
